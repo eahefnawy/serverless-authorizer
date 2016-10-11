@@ -1,0 +1,15 @@
+service: serverless-authorizer
+
+provider: aws
+
+functions:
+  profile:
+    handler: index.profile
+    events:
+      - http:
+          path: profile
+          method: get
+          authorizer: auth
+  auth:
+    handler: index.auth
+
